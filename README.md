@@ -30,6 +30,7 @@ A listagem de Produtos pode ser pública, mas NÂO pode mostrar o preço de cust
 - Logging (Sentry, SEQ, etc....)
 - Encriptar credenciais salvas (do Administrador)
 - Deployar a API gerada em cloud (Heroku, Azure, AWS etc...)
+- Usar MongoDb
 
 ## Processo de submissão (entrega do desafio)
 
@@ -37,9 +38,13 @@ O candidato deve implementar a solução (pacote) e enviar um "Pull Request" par
 
 O fluxo de Pull Request será:
     1) Candidato fará um "fork público" desse repositório/desafio (não pode clonar direto)
+    
     2) Fará o desenvolvimento do seu projeto nesse fork.
+    
     3) Commitará e subirá as alterações para o SEU próprio fork.
+    
     4) Pelo Github, irá enviar um Pull Request (Não vai fazer o PUSH diretamente para ESTE repositório!, somente PR)
+    
     
 ## Prazo
 
