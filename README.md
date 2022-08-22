@@ -37,6 +37,7 @@ A listagem de Produtos pode ser pública, mas NÂO pode mostrar o preço de cust
 O candidato deve implementar a solução (pacote) e enviar um "Pull Request" para este repositório com a solução final.
 
 O fluxo de Pull Request será:
+
     1) Candidato fará um "fork público" desse repositório/desafio (não pode clonar direto)
     
     2) Fará o desenvolvimento do seu projeto nesse fork.
