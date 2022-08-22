@@ -11,7 +11,7 @@ Criar uma web api (RESTful) em Node.Js com funcionalidade de login/logout de um 
 - Login do Administrador com Authorization (bearer token) via Header
 - Persistência de dados (pode escolher o banco de dados)
 
-## Telas e funcionalidades:
+## Funcionalidades:
 O candidato está livre para escolher as rotas/endpoints da API.
 
 Para a entidade "Livro", os atributos mínimos obrigatórios que desejamos são: ID (único), TÍTULO, AUTOR, EDITORA, PREÇO DE CUSTO e QUANTIDADE.
