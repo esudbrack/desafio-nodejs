@@ -75,12 +75,13 @@ class LivroController {
         let livro = await Livro.findById(id);
         let editoraId = livro.editora;
         
-        // await Livro.findByIdAndRemove(id).exec();
+        await Livro.findByIdAndRemove(id).exec();
 
-        // REMOVER LIVRO DO ARRAY DE LIVROS DA EDITORA
+        // remove livro do array da editora
         let editora = await Editora.findById(editoraId);
 
-        console.log(editora.livros);
+        editora.livros = editora.livros.filter((livro) => (livro == id) ? false : true)
+        await editora.save();
 
         return res.send({ message: "Livro deletado com sucesso."});
     } catch (error) {
