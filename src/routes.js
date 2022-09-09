@@ -23,6 +23,9 @@ routes.use(checkCredentials);
 
 routes.use(isAdmin);
 routes.post("/editora/create", EditoraController.create);
+routes.get("/editoras", EditoraController.list);
+routes.put("/editora/:id", EditoraController.update);
+routes.delete("/editora/:id", EditoraController.delete);
 
 routes.post("/livro/create", LivroController.create);
 routes.put("/livro/:id", LivroController.update);
