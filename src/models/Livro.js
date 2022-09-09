@@ -19,8 +19,9 @@ const LivroSchema = new Schema(
       required: true,
     },
     editora: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Editora",
+      required: true,
     },
   },
   {

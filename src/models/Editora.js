@@ -11,7 +11,7 @@ const EditoraSchema = new Schema(
       required: true,
       unique: true,
     },
-    livros: [{ type: mongoose.Schema.Types.ObjectId, ref: "Livro" }],
+    livros: [{ type: Schema.Types.ObjectId, ref: "Livro" }],
   },
   {
     timestamps: true,
