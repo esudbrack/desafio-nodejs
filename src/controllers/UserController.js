@@ -1,5 +1,6 @@
 import User from "../models/User";
 import bcryptjs from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 class UserController {
   async create(req, res) {
@@ -23,6 +24,30 @@ class UserController {
       await user.save();
 
       return res.send({ message: "User created with success." });
+    } catch (error) {
+      return res.status(500).send({ message: "Internal server error." });
+    }
+  }
+
+  async login(req, res) {
+    try {
+      let { email, password } = req.body;
+
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(404).json({ message: "User not found." });
+      }
+
+      const checkpassword = await bcryptjs.compare(password, user.password);
+      if (!checkpassword) {
+        return res.status(400).json({ message: "Credenciais inválidas!" });
+      }
+      const token = jwt.sign({}, process.env.JWT_SECRET, {
+        expiresIn: "1d",
+        subject: String(user._id),
+      });
+
+      return res.status(200).json({ token });
     } catch (error) {
       return res.status(500).send({ message: "Internal server error." });
     }
