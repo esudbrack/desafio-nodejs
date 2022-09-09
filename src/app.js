@@ -9,7 +9,7 @@ import "./database";
 const app = express();
 
 Sentry.init({
-  dsn: "https://897a764bb6d14070b24c7d79eccf22bd@o381315.ingest.sentry.io/6732187",
+  dsn: process.env.SENTRY_DSN,
   integrations: [
     // enable HTTP calls tracing
     new Sentry.Integrations.Http({ tracing: true }),
