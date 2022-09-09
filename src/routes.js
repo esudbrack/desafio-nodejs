@@ -5,6 +5,7 @@ import LivroController from "./controllers/LivroController";
 import UserController from "./controllers/UserController";
 // Middlewares
 import checkCredentials from "./middlewares/checkCredentials";
+import isAdmin from "./middlewares/isAdmin";
 
 const routes = new Router();
 
@@ -20,6 +21,7 @@ routes.get("/livros/editora/:id", LivroController.listByEditora);
 
 routes.use(checkCredentials);
 
+routes.use(isAdmin);
 routes.post("/editora/create", EditoraController.create);
 
 routes.post("/livro/create", LivroController.create);

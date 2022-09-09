@@ -33,7 +33,7 @@ class UserController {
     try {
       let { email, password } = req.body;
 
-      const user = await User.findOne({ email });
+      let user = await User.findOne({ email });
       if (!user) {
         return res.status(404).json({ message: "User not found." });
       }
@@ -42,9 +42,12 @@ class UserController {
       if (!checkpassword) {
         return res.status(400).json({ message: "Credenciais inválidas!" });
       }
-      const token = jwt.sign({}, process.env.JWT_SECRET, {
-        expiresIn: "1d",
-        subject: String(user._id),
+
+      user = user.toJSON();
+      delete user.password;
+
+      const token = jwt.sign(user, process.env.JWT_SECRET, {
+        expiresIn: "8h",
       });
 
       return res.status(200).json({ token });

@@ -11,9 +11,8 @@ export default async function (req, res, next) {
   try {
     const decoded = await verify(token, process.env.JWT_SECRET);
 
-    const id = decoded.sub;
-
-    req.userId = id;
+    req.userId = decoded._id;
+    req.is_admin = decoded.is_admin;
 
     return next();
   } catch (error) {
